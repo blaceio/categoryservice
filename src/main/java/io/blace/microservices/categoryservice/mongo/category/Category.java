@@ -1,7 +1,5 @@
 package io.blace.microservices.categoryservice.mongo.category;
 
-import java.util.List;
-
 import org.springframework.data.annotation.Id;
 
 public class Category {
@@ -10,7 +8,7 @@ public class Category {
 	private String id;
 	
 	private String description;	
-	private List<Reference> divisions;
+	private String division;
 	
 	public String getId() {
 		return id;
@@ -24,17 +22,15 @@ public class Category {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public List<Reference> getDivisions() {
-		return divisions;
+	public String getDivision() {
+		return division;
 	}
-	public void setDivisions(List<Reference> divisions) {
-		this.divisions = divisions;
+	public void setDivision(String division) {
+		this.division = division;
 	}
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", description=" + description + ", divisions=" + divisions + "]";
+		return "Category [id=" + id + ", description=" + description + ", division=" + division + "]";
 	}
-
-	
 
 }

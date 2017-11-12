@@ -10,6 +10,6 @@ public interface CategoryRepository extends MongoRepository<Category, String> {
 	
 	List<Category> findAll();
 	
-	List<Category> findByDivisionsRef(String type);
+	List<Category> findByDivision(String division);
 	
 }

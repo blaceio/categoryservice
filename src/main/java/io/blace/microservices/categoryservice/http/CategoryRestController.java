@@ -20,7 +20,7 @@ import io.blace.microservices.categoryservice.mongo.category.Category;
 import io.blace.microservices.categoryservice.mongo.category.CategoryRepository;
 
 @RestController
-public class ProductRestController {
+public class CategoryRestController {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
@@ -45,7 +45,7 @@ public class ProductRestController {
     @RequestMapping(value = "category", params = {"division"})
     public ResponseEntity<List<Category>> getbydivision(@RequestParam("division") String division){
     		logger.info("getbydivision requested for " +  division);
-        return new ResponseEntity<List<Category>>(categoryrepo.findByDivisionsRef(division), HttpStatus.OK);
+        return new ResponseEntity<List<Category>>(categoryrepo.findByDivision(division), HttpStatus.OK);
     }    
     
     @CrossOrigin
@@ -53,6 +53,18 @@ public class ProductRestController {
     public ResponseEntity<Category> createcategory(@RequestBody Category category) {
     		logger.info("createcategory requested for " +  category.toString());
     		categoryrepo.save(category);
+        return new ResponseEntity<Category>(HttpStatus.CREATED);
+    }
+    
+    @CrossOrigin
+    @PostMapping("/categories")
+    public ResponseEntity<Category> createcategories(@RequestBody List<Category> categories) {
+    		logger.info("createcategories requested");
+    		
+    		for( Category category : categories) {
+    			categoryrepo.save(category);
+    		}
+    		
         return new ResponseEntity<Category>(HttpStatus.CREATED);
     }
     
