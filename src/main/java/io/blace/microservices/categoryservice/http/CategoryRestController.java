@@ -42,13 +42,6 @@ public class CategoryRestController {
     }   
     
     @CrossOrigin
-    @RequestMapping(value = "category", params = {"division"})
-    public ResponseEntity<List<Category>> getbydivision(@RequestParam("division") String division){
-    		logger.info("getbydivision requested for " +  division);
-        return new ResponseEntity<List<Category>>(categoryrepo.findByDivision(division), HttpStatus.OK);
-    }    
-    
-    @CrossOrigin
     @PostMapping("/category")
     public ResponseEntity<Category> createcategory(@RequestBody Category category) {
     		logger.info("createcategory requested for " +  category.toString());

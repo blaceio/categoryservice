@@ -8,7 +8,6 @@ public class Category {
 	private String id;
 	
 	private String description;	
-	private String division;
 	
 	public String getId() {
 		return id;
@@ -22,15 +21,9 @@ public class Category {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getDivision() {
-		return division;
-	}
-	public void setDivision(String division) {
-		this.division = division;
-	}
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", description=" + description + ", division=" + division + "]";
+		return "Category [id=" + id + ", description=" + description + "]";
 	}
 
 }
